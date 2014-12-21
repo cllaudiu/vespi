@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">vespidrone</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="suspension">&#8230;</string>
+    <string name="title_activity_main">VespiDrone</string>
+    <string name="serverIpAdress">Server IP address:</string>
+    <string name="connectToServer">Connect to server</string>
+    <string name="startEngine">Start Engine</string>
+
+</resources>
