@@ -194,13 +194,13 @@ public class QuadcopterActivity extends IOIOActivity
 			//led_ = ioio_.openDigitalOutput(0, true);
 			
 			final ChannelConfigPwmSpeed dcMotorNEConfig = new Sequencer.ChannelConfigPwmSpeed(
-					Sequencer.Clock.CLK_250K, 750, 0, new DigitalOutput.Spec(2));
+					Sequencer.Clock.CLK_2M, 6111, 0, new DigitalOutput.Spec(2));
 			final ChannelConfigPwmSpeed dcMotorNWConfig = new Sequencer.ChannelConfigPwmSpeed(
-					Sequencer.Clock.CLK_250K, 750, 0, new DigitalOutput.Spec(3));
+					Sequencer.Clock.CLK_2M, 611, 0, new DigitalOutput.Spec(3));
 			final ChannelConfigPwmSpeed dcMotorSEConfig = new Sequencer.ChannelConfigPwmSpeed(
-					Sequencer.Clock.CLK_250K, 750, 0, new DigitalOutput.Spec(4));
+					Sequencer.Clock.CLK_2M, 6111, 0, new DigitalOutput.Spec(4));
 			final ChannelConfigPwmSpeed dcMotorSWConfig = new Sequencer.ChannelConfigPwmSpeed(
-					Sequencer.Clock.CLK_250K, 750, 0, new DigitalOutput.Spec(5));
+					Sequencer.Clock.CLK_2M, 6111, 0, new DigitalOutput.Spec(5));
 			
 
 			
