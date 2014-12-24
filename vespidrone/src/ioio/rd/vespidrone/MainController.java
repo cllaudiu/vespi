@@ -254,14 +254,17 @@ public class MainController implements TcpMessageReceiver
                     rollForce = 0.0f;
                     altitudeForce = 0.0f;
                 }
-
-                //transmitter.setPowers(motorsPowers);
+               
+               
                 
+                // motorsPowers comes as values between 0 and 255
+                // needs to be transformed to values from 0 to 1
+                // Math.round((1060.f + (800 * motorsPowers.nw * 0.39f)) * 2);
                 
-                uno_varValue = (int) (1060 + (motorsPowers.nw * 8));
-            	due_varValue = (int) (1060 + (motorsPowers.ne * 8));
-            	tre_varValue = (int) (1060 + (motorsPowers.sw * 8)); 
-            	qua_varValue = (int) (1060 + (motorsPowers.se * 8));
+                uno_varValue = Math.round(1060 + (motorsPowers.nw * 8));
+            	due_varValue = Math.round(1060 + (motorsPowers.ne * 8));
+            	tre_varValue = Math.round(1060 + (motorsPowers.sw * 8)); 
+            	qua_varValue = Math.round(1060 + (motorsPowers.se * 8));
             	//Log.d("AndroCopter", "Motor=" + uno_varValue + " - " + due_varValue + " - " + tre_varValue + " - " + qua_varValue);
 
                 // Log the variables, if needed.

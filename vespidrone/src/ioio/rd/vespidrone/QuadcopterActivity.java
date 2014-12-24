@@ -166,10 +166,10 @@ public class QuadcopterActivity extends IOIOActivity
 
 		
 		
-		private Sequencer.ChannelCuePwmPosition dcMotorNECue_ = new ChannelCuePwmPosition();
-		private Sequencer.ChannelCuePwmPosition dcMotorNWCue_ = new ChannelCuePwmPosition();
-		private Sequencer.ChannelCuePwmPosition dcMotorSECue_ = new ChannelCuePwmPosition();
-		private Sequencer.ChannelCuePwmPosition dcMotorSWCue_ = new ChannelCuePwmPosition();
+		private Sequencer.ChannelCuePwmSpeed dcMotorNECue_ = new ChannelCuePwmSpeed();
+		private Sequencer.ChannelCuePwmSpeed dcMotorNWCue_ = new ChannelCuePwmSpeed();
+		private Sequencer.ChannelCuePwmSpeed dcMotorSECue_ = new ChannelCuePwmSpeed();
+		private Sequencer.ChannelCuePwmSpeed dcMotorSWCue_ = new ChannelCuePwmSpeed();
 		
 
 		private Sequencer.ChannelCue[] cue_ = new Sequencer.ChannelCue[] { dcMotorNECue_,dcMotorNWCue_,dcMotorSECue_,dcMotorSWCue_ };
@@ -193,14 +193,14 @@ public class QuadcopterActivity extends IOIOActivity
 			enableUi(true);
 			//led_ = ioio_.openDigitalOutput(0, true);
 			
-			final ChannelConfigPwmPosition dcMotorNEConfig = new Sequencer.ChannelConfigPwmPosition(
-					Sequencer.Clock.CLK_2M, 6120, 0, new DigitalOutput.Spec(2));
-			final ChannelConfigPwmPosition dcMotorNWConfig = new Sequencer.ChannelConfigPwmPosition(
-					Sequencer.Clock.CLK_2M, 6120, 0, new DigitalOutput.Spec(3));
-			final ChannelConfigPwmPosition dcMotorSEConfig = new Sequencer.ChannelConfigPwmPosition(
-					Sequencer.Clock.CLK_2M, 6120, 0, new DigitalOutput.Spec(4));
-			final ChannelConfigPwmPosition dcMotorSWConfig = new Sequencer.ChannelConfigPwmPosition(
-					Sequencer.Clock.CLK_2M, 6120, 0, new DigitalOutput.Spec(5));
+			final ChannelConfigPwmSpeed dcMotorNEConfig = new Sequencer.ChannelConfigPwmSpeed(
+					Sequencer.Clock.CLK_250K, 750, 0, new DigitalOutput.Spec(2));
+			final ChannelConfigPwmSpeed dcMotorNWConfig = new Sequencer.ChannelConfigPwmSpeed(
+					Sequencer.Clock.CLK_250K, 750, 0, new DigitalOutput.Spec(3));
+			final ChannelConfigPwmSpeed dcMotorSEConfig = new Sequencer.ChannelConfigPwmSpeed(
+					Sequencer.Clock.CLK_250K, 750, 0, new DigitalOutput.Spec(4));
+			final ChannelConfigPwmSpeed dcMotorSWConfig = new Sequencer.ChannelConfigPwmSpeed(
+					Sequencer.Clock.CLK_250K, 750, 0, new DigitalOutput.Spec(5));
 			
 
 			
@@ -239,11 +239,12 @@ public class QuadcopterActivity extends IOIOActivity
 		
 		private void push() throws ConnectionLostException, InterruptedException {
 			
+						
 			dcMotorNECue_.pulseWidth = mainController.getNEMotorsPowers();
 			dcMotorNWCue_.pulseWidth = mainController.getNWMotorsPowers();
 			dcMotorSECue_.pulseWidth = mainController.getSEMotorsPowers();
 			dcMotorSWCue_.pulseWidth = mainController.getSWMotorsPowers();
-	
+			
 			sequencer_.push(cue_, 10);
 		}
 
